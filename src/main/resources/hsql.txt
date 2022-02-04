@@ -1,0 +1,5 @@
+cd C:\hsqldb-2.6.1\hsqldb
+
+java -classpath lib/hsqldb.jar org.hsqldb.server.Server --database.0 file:hsqldb/drumsdb --dbname.0 drumsdb
+
+cd C:\hsqldb-2.6.1\hsqldb\bin\runManagerSwing.bat
