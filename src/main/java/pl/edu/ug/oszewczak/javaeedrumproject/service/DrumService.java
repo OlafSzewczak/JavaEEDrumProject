@@ -13,6 +13,7 @@ import pl.edu.ug.oszewczak.javaeedrumproject.repository.ShellRepository;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -162,9 +163,9 @@ public class DrumService {
         drum6.setShell(shell6);
         drum6.setManufacturer(pearl);
 
-        salesman1.setDrums(List.of(drum1, drum2, drum5));
-        salesman2.setDrums(List.of(drum2, drum3));
-        salesman3.setDrums(List.of(drum1, drum4, drum6, drum2));
+        salesman1.setDrums(Arrays.asList(drum1, drum2, drum5));
+        salesman2.setDrums(Arrays.asList(drum2, drum3));
+        salesman3.setDrums(Arrays.asList(drum1, drum2, drum5, drum6, drum3));
 
 
         // Add entities

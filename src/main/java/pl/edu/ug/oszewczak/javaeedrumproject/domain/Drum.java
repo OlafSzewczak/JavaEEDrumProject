@@ -9,6 +9,7 @@ import lombok.ToString;
 import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Objects;
 
@@ -27,6 +28,7 @@ public class Drum {
     @NotBlank(message = "Name is required!")
     private String name;
 
+    @NotNull(message = "Type is required")
     private DrumType type;
 
     @NotBlank(message = "Color is required!")
