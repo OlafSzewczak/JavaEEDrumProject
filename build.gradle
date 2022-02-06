@@ -46,7 +46,7 @@ dependencies {
 //    with jar
 //}
 
-jar {
+bootJar {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     manifest {
         attributes "Main-Class": 'pl.edu.ug.oszewczak.javaeedrumproject.JavaEEDrumProjectApplication'
