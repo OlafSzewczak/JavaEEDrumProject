@@ -47,8 +47,13 @@ dependencies {
 //}
 
 jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     manifest {
         attributes "Main-Class": 'pl.edu.ug.oszewczak.javaeedrumproject.JavaEEDrumProjectApplication'
+    }
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
 
