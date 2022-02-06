@@ -37,13 +37,19 @@ dependencies {
 }
 
 //create a single Jar with all dependencies
-task fatJar(type: Jar) {
+//task fatJar(type: Jar) {
+//    manifest {
+//        attributes 'Implementation-Title': 'Jar File',
+//                'Main-Class': 'pl.edu.ug.oszewczak.javaeedrumproject.JavaEEDrumProjectApplication'
+//    }
+//    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+//    with jar
+//}
+
+jar {
     manifest {
-        attributes 'Implementation-Title': 'Jar File',
-                'Main-Class': 'pl.edu.ug.oszewczak.javaeedrumproject.JavaEEDrumProjectApplication'
+        attributes "Main-Class": 'pl.edu.ug.oszewczak.javaeedrumproject.JavaEEDrumProjectApplication'
     }
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-    with jar
 }
 
 
