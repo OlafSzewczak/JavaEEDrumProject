@@ -47,6 +47,14 @@ public class DrumService {
         return drumRepository.save(drum);
     }
 
+    public void addOrUpdateDrum(Drum drum) {
+        if (drum.getId() == null) {
+            addDrum(drum);
+            return;
+        }
+        updateDrum(drum.getId(), drum);
+    }
+
     public List<Drum> getAllDrums() {
         List<Drum> drums = new ArrayList<>();
         drumRepository.findAll().forEach(drums::add);
@@ -58,7 +66,6 @@ public class DrumService {
     }
 
     public Drum updateDrum(Long id, Drum drum) {
-        System.out.println("Update Drum " + drum);
         Drum drumToUpdate = drumRepository.findById(id).orElseThrow(() -> new DrumNotFoundException(id));
         drumToUpdate.setColour(drum.getColour());
         drumToUpdate.setName(drum.getName());
@@ -88,13 +95,13 @@ public class DrumService {
     }
 
     // Salesman Operations
-    public Salesman addSalesman(Salesman salesman) {
-        return salesmanRepository.save(salesman);
+    public void addSalesman(Salesman salesman) {
+        salesmanRepository.save(salesman);
     }
 
     // Shell Operations
-    public Shell addShell(Shell shell) {
-        return shellRepository.save(shell);
+    public void addShell(Shell shell) {
+        shellRepository.save(shell);
     }
 
     public List<Shell> getShellsWithoutOwner() {

@@ -48,12 +48,7 @@ public class DrumWebController {
             model.addAttribute("manufacturers", drumService.getAllManufacturers());
             return "drum-add";
         } else {
-            if (drum.getId() == null) {
-                drumService.addDrum(drum);
-                System.out.println("Drums of " + drum.getManufacturer().getName() + ": " + drum.getManufacturer().getDrums());
-            } else {
-                drumService.updateDrum(drum.getId(), drum);
-            }
+            drumService.addOrUpdateDrum(drum);
             return "redirect:/";
         }
     }
